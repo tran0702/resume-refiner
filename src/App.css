@@ -1,18 +1,32 @@
-/* App.css cleared for Tokyo Night theme */
-.container {
-  max-width: 1200px;
+#root {
+  max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-}
-
-header {
-  margin-bottom: 3rem;
   text-align: center;
 }
 
+.container {
+  width: 100%;
+}
+
+header {
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 2.5em;
+  line-height: 1.1;
+  color: var(--color-purple);
+}
+
 .status-bar {
-  font-size: 0.9rem;
+  font-size: 0.9em;
   color: var(--fg-secondary);
+  background-color: var(--bg-secondary);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  display: inline-block;
+  border: 1px solid var(--border-color);
 }
 
 .status-ok {
@@ -29,42 +43,98 @@ header {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
+  align-items: start;
 }
 
-@media (max-width: 768px) {
-  .grid-layout {
-    grid-template-columns: 1fr;
-  }
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .preview-box {
-  background-color: var(--bg-primary);
+  background-color: var(--bg-secondary);
   border: 1px solid var(--border-color);
-  border-radius: 8px;
   padding: 1rem;
-  margin-top: 1rem;
+  border-radius: 8px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
 }
 
 .preview-box h4 {
   margin-top: 0;
-  color: var(--color-magenta);
-  font-size: 0.9rem;
   margin-bottom: 0.5rem;
+  color: var(--color-blue);
+  text-align: left;
 }
 
 textarea {
   width: 100%;
-  height: 200px;
-  background-color: var(--bg-secondary);
+  height: 100%;
+  min-height: 250px;
+  background-color: var(--bg-primary);
   border: 1px solid var(--border-color);
   color: var(--fg-primary);
-  padding: 0.8rem;
-  font-family: inherit;
-  font-size: 0.9rem;
+  padding: 0.5rem;
+  font-family: monospace;
   resize: vertical;
-  border-radius: 4px;
+  flex-grow: 1;
 }
 
-textarea:focus {
-  outline: 1px solid var(--color-blue);
+.profile-summary {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--color-green);
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.profile-summary h3 {
+  margin-top: 0;
+  color: var(--color-green);
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.primary-btn {
+  background-color: var(--color-purple);
+  color: white;
+  font-weight: bold;
+  border: none;
+}
+
+.primary-btn:hover {
+  background-color: var(--color-magenta);
+}
+
+.status-msg {
+  color: var(--color-cyan);
+  font-style: italic;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.6;
+  }
+}
+
+@media (max-width: 800px) {
+  .grid-layout {
+    grid-template-columns: 1fr;
+  }
 }
