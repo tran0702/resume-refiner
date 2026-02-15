@@ -1,0 +1,159 @@
+.profile-editor {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    text-align: left;
+}
+
+.editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+.editor-header h2 {
+    margin: 0;
+    color: var(--color-blue);
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.section {
+    margin-bottom: 2.5rem;
+}
+
+.section h3 {
+    color: var(--color-magenta);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-group-row input {
+    flex: 1;
+    padding: 0.6rem;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--fg-primary);
+}
+
+.card-item {
+    background-color: var(--bg-secondary);
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+    position: relative;
+}
+
+.remove-btn {
+    background-color: transparent;
+    color: var(--color-red);
+    border: 1px solid var(--color-red);
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+    margin-top: 0.5rem;
+}
+
+.remove-btn:hover {
+    background-color: var(--color-red);
+    color: var(--bg-primary);
+}
+
+.add-btn {
+    background-color: var(--bg-secondary);
+    color: var(--color-green);
+    border: 1px dashed var(--color-green);
+    width: 100%;
+}
+
+.add-btn:hover {
+    background-color: var(--color-green);
+    color: var(--bg-primary);
+}
+
+.bullets-section {
+    margin-top: 1rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.bullet-row {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+textarea {
+    flex: 1;
+}
+
+.icon-btn {
+    padding: 0 0.5rem;
+    color: var(--fg-secondary);
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+}
+
+.icon-btn:hover {
+    color: var(--color-red);
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.skill-input {
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding-right: 0.5rem;
+}
+
+.skill-input input {
+    border: none;
+    background: transparent;
+    color: var(--fg-primary);
+    padding: 0.5rem;
+    width: 120px;
+}
+
+.skill-input input:focus {
+    outline: none;
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: var(--fg-secondary);
+    border: 1px solid var(--fg-secondary);
+}
+
+.secondary-btn:hover {
+    border-color: var(--fg-primary);
+    color: var(--fg-primary);
+}
+
+.small-btn {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.85rem;
+}

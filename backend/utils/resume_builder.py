@@ -5,21 +5,26 @@ from docx.shared import Pt, Inches
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 
 class ResumeBuilder:
-    def __init__(self, master_profile_json):
+    def __init__(self, master_profile_json, template_name='harvard'):
         """
         master_profile_json: dict containing profile data (experience, education, skills, etc.)
+        template_name: string (default: 'harvard')
         """
         self.profile = master_profile_json
+        self.template_name = template_name
         self.doc = Document()
         self.set_margins()
 
     def set_margins(self):
+        # Adjust margins based on template?
+        # For now, keep standard 0.5 for Harvard
+        margin = Inches(0.5) if self.template_name == 'harvard' else Inches(1.0)
         sections = self.doc.sections
         for section in sections:
-            section.top_margin = Inches(0.5)
-            section.bottom_margin = Inches(0.5)
-            section.left_margin = Inches(0.5)
-            section.right_margin = Inches(0.5)
+            section.top_margin = margin
+            section.bottom_margin = margin
+            section.left_margin = margin
+            section.right_margin = margin
 
     def add_header(self):
         # Name
