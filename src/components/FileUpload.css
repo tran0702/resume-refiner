@@ -1,0 +1,70 @@
+.file-upload-container {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.file-upload-container h3 {
+    margin-top: 0;
+    color: var(--color-blue);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.upload-box {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+input[type="file"] {
+    flex-grow: 1;
+    padding: 0.5rem;
+    border: 1px dashed var(--border-color);
+    border-radius: 4px;
+    color: var(--fg-secondary);
+    cursor: pointer;
+}
+
+input[type="file"]::file-selector-button {
+    background-color: var(--bg-primary);
+    color: var(--fg-primary);
+    border: 1px solid var(--border-color);
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.primary-btn {
+    background-color: var(--color-blue);
+    color: var(--bg-primary);
+    font-weight: 600;
+    border: none;
+}
+
+.primary-btn:hover {
+    background-color: var(--color-cyan);
+    border: none;
+}
+
+.primary-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.error-msg {
+    color: var(--color-red);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.file-name {
+    font-size: 0.85rem;
+    color: var(--color-green);
+    margin-top: 0.5rem;
+}
