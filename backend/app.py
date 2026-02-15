@@ -1,9 +1,75 @@
 
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, send_file
 from utils.parsing import parse_resume_file
 from utils.ai_client import ai_client
+from utils.resume_builder import ResumeBuilder
+from utils.cover_letter_builder import CoverLetterBuilder
+import tempfile
+import os
 
 app = Flask(__name__)
+
+# ... existing routes ...
+
+@app.route('/api/generate-cover-letter', methods=['POST'])
+def generate_cover_letter():
+    data = request.json
+    if not data or 'profile' not in data or 'letter_body' not in data:
+        return jsonify({"error": "Missing profile or letter body"}), 400
+    
+    profile = data['profile']
+    letter_body = data['letter_body']
+    job_title = data.get('job_title', 'Role')
+    
+    # Clean job title for filename
+    safe_title = "".join([c for c in job_title if c.isalnum() or c in (' ', '-', '_')]).strip()
+    filename = f"{safe_title} - Cover Letter - Applied.docx"
+    
+    try:
+        builder = CoverLetterBuilder(profile, letter_body)
+        
+        # Create a temp file
+        temp_dir = tempfile.gettempdir()
+        file_path = os.path.join(temp_dir, filename)
+        
+        builder.build(file_path)
+        
+        return send_file(file_path, as_attachment=True, download_name=filename)
+        
+    except Exception as e:
+        return jsonify({"error": f"Generation failed: {str(e)}"}), 500
+
+# ... existing routes ...
+
+@app.route('/api/generate-resume', methods=['POST'])
+def generate_resume():
+    data = request.json
+    if not data or 'profile' not in data:
+        return jsonify({"error": "No profile data provided"}), 400
+    
+    profile = data['profile']
+    job_title = data.get('job_title', 'Role')
+    
+    # Clean job title for filename
+    safe_title = "".join([c for c in job_title if c.isalnum() or c in (' ', '-', '_')]).strip()
+    filename = f"{safe_title} - Resume - Applied.docx"
+    
+    try:
+        builder = ResumeBuilder(profile)
+        
+        # Create a temp file
+        temp_dir = tempfile.gettempdir()
+        file_path = os.path.join(temp_dir, filename)
+        
+        builder.build(file_path)
+        
+        return send_file(file_path, as_attachment=True, download_name=filename)
+        
+    except Exception as e:
+        return jsonify({"error": f"Generation failed: {str(e)}"}), 500
+
+if __name__ == '__main__':
+    app.run(port=5000, debug=True)
 
 @app.route('/api/health')
 def health_check():
